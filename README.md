@@ -61,4 +61,53 @@ docker compose up --build
 # ❗ Nota su Red
 
 Il servizio `red` parte **senza output di feedback**.  
-Se hai bisogno di log o output a schermo, **rimuovi l’opzione `--no-feedback`** nel rispettivo `Dockerfile`.
+Se hai bisogno di log o output a schermo, **rimuovi l'opzione `--no-feedback`** nel rispettivo `Dockerfile`.
+
+---
+
+# 🌐 Endpoint REST (POST)
+
+## Orange - Tagging
+- **Endpoint:** `ip:8068/tag`
+- **Input JSON:** `"question"`
+- **Output JSON:** `"tags"`, `"raw_output"`, `"mode_used"`
+
+## Yellow - Question Generation
+- **Endpoint:** `ip:8069/generate_question`
+- **Input JSON:** `"argument"`
+- **Output JSON:** `"question_generated"`, `"raw_llm_output"`
+
+## Red - Evaluation
+- **Endpoint:** `ip:8070/evaluate`
+- **Input JSON:** `"question"`, `"answer"`, `"feedback"` (opzionale)
+- **Output JSON:** `"score"` (int), `"raw"`
+
+## Green Validity - Evaluation
+- **Endpoint:** `ip:8071/evaluate`
+- **Input JSON:** `"question"`, `"answer"`
+- **Output JSON:** `"score"` (int), `"feedback"`, `"raw"`
+
+## Green Cultural - Evaluation
+- **Endpoint:** `ip:8072/evaluate`
+- **Input JSON:** `"question"`
+- **Output JSON:** `"score"` (int), `"raw"`
+
+## Cyan - Answer Generation
+- **Endpoint:** `ip:8073/answer`
+- **Input JSON:** `"argomento"`, `"livello"`
+- **Output JSON:** `"risposta"`, `"raw"`
+
+## Magenta - Humanization
+- **Endpoint:** `ip:8074/humanize`
+- **Input JSON:** `"llm_response"`, `"level"`
+- **Output JSON:** `"humanized_response"`, `"raw_model_output"`
+
+## Green Coherence QT - Question-Theme Evaluation
+- **Endpoint:** `ip:8075/evaluate`
+- **Input JSON:** `"question"`, `"theme"`
+- **Output JSON:** `"bool"` ("Vero" o "Falso"), `"raw"`
+
+## Green Coherence QA - Question-Answer Evaluation
+- **Endpoint:** `ip:8076/evaluate`
+- **Input JSON:** `"question"`, `"answer"`
+- **Output JSON:** `"bool"` ("Vero" o "Falso"), `"raw"`
