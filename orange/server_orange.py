@@ -35,7 +35,18 @@ from langchain.chains import LLMChain
 
 # ---------------------------------------------------------------------------
 # MODEL + TOKENIZER ---------------------------------------------------------
-def load_model_and_tokenizer(model_id: str) -> Tuple[transformers.PreTrainedModel, transformers.PreTrainedTokenizer, str]:
+def load_model_and_tokenizer(
+    model_id: str,
+    quant: Optional[str] = "4bit"  # "4bit" | "8bit" | "gptq" | None
+) -> Tuple[transformers.PreTrainedModel,
+           transformers.PreTrainedTokenizer,
+           str]:
+    """
+    Carica tokenizer + modello, provando la quantizzazione richiesta.
+    Se la quantizzazione non è disponibile o fallisce, usa il modello
+    non quantizzato e stampa l’esito.
+    """
+    # ───────────────────────── Device ─────────────────────────
     if torch.backends.mps.is_available():
         device = "mps"
     elif torch.cuda.is_available():
@@ -44,35 +55,83 @@ def load_model_and_tokenizer(model_id: str) -> Tuple[transformers.PreTrainedMode
         device = "cpu"
     print(f"💻 Device selezionato: {device}")
 
+    # ─────────────────────── Tokenizer ────────────────────────
     print(f"📝 Caricamento tokenizer: {model_id}")
     tokenizer = transformers.AutoTokenizer.from_pretrained(
-        model_id, trust_remote_code=True, use_fast=True, padding_side="left"
+        model_id,
+        trust_remote_code=True,
+        use_fast=True,
+        padding_side="left",
     )
     if tokenizer.pad_token is None:
         tokenizer.add_special_tokens({"pad_token": tokenizer.eos_token})
 
-    print(f"🤖 Caricamento modello: {model_id}")
-    model_kwargs = {"trust_remote_code": True}
+    # ─────────────────── Config quantizzazione ─────────────────
+    quant_cfg = None
+    did_quantize = False
 
-    if device == "cuda":
-        model_kwargs.update({
-            "device_map": "auto",
-            "torch_dtype": torch.bfloat16,
-            "low_cpu_mem_usage": True,
-        })
-        model = transformers.AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs)
-    else: 
-        model_kwargs["torch_dtype"] = torch.float32
-        model = transformers.AutoModelForCausalLM.from_pretrained(model_id, **model_kwargs)
-        if not hasattr(model, "hf_device_map"):
-            print(f"Moving model to {device}")
-            model.to(device)
-        elif device == "cpu" and hasattr(model, "hf_device_map"):
-             print("Model loaded with device_map, not moving to CPU explicitly.")
+    # GPTQ: i pesi sono già quantizzati → nessuna cfg extra
+    if quant == "gptq" or ".gptq" in model_id.lower():
+        did_quantize = True
+        print("✨ GPTQ rilevato/chiesto – il modello è già weight-only 4 bit")
+
+    # BitsAndBytes 4/8-bit
+    elif quant in {"4bit", "8bit"}:
+        try:
+            from transformers import BitsAndBytesConfig
+            if quant == "4bit":
+                quant_cfg = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_compute_dtype=torch.bfloat16,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4",
+                )
+            else:  # "8bit"
+                quant_cfg = BitsAndBytesConfig(load_in_8bit=True)
+            did_quantize = True
+            print(f"✨ Quantizzazione {quant} attivata con bitsandbytes")
+        except (ImportError, Exception) as e:
+            warnings.warn(
+                f"⚠️ BitsAndBytes non disponibile o errore: {e}\n"
+                "   Procedo con modello non quantizzato."
+            )
+            quant_cfg = None
+            did_quantize = False
+
+    # ───────────────────── Caricamento modello ─────────────────
+    print(f"🤖 Caricamento modello: {model_id}")
+    common_kwargs = dict(
+        trust_remote_code=True,
+        low_cpu_mem_usage=True,
+        device_map="auto" if device == "cuda" else None,
+        torch_dtype=torch.bfloat16 if device == "cuda" else torch.float32,
+        quantization_config=quant_cfg,
+    )
+
+    # Se siamo su mps/CPU e quant_cfg è settata da bitsandbytes,
+    # la ignoriamo perché bitsandbytes richiede CUDA.
+    if device != "cuda":
+        common_kwargs["quantization_config"] = None
+        if quant_cfg is not None:
+            print("⚠️  Quantizzazione richiesta ma non supportata su questo device; caricamento FP32.")
+            did_quantize = False
+
+    model = transformers.AutoModelForCausalLM.from_pretrained(model_id, **common_kwargs)
+
+    if hasattr(model, "hf_device_map"):
+        pass  # già posizionato con device_map="auto"
+    else:
+        model.to(device)
 
     model.eval()
-    return model, tokenizer, device
 
+    # ────────────────────── Messaggio finale ───────────────────
+    if did_quantize:
+        print("✅ Modello quantizzato caricato correttamente.")
+    else:
+        print("ℹ️  Modello caricato in precisione standard (no quantizzazione).")
+
+    return model, tokenizer, device
 # ---------------------------------------------------------------------------
 # PIPELINE (Returns raw transformers.pipeline) -----------------------------
 def create_raw_pipeline(model, tokenizer, device: str, max_new_tokens: int = 50):
