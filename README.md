@@ -12,7 +12,7 @@ I modelli da noi testati sono:
 
 ⚠️ **Attenzione:** si sconsiglia l'uso di modelli *Gemma* di piccole dimensioni, in quanto potrebbero:
 - ignorare il *system prompt*
-- generare risposte allucininate
+- generare risposte allucinate
 
 Nel caso in cui il modello fallisca (es. allucinazioni tali da rendere impossibile l'estrazione di un output valido, come ad esempio in `red`), verrà restituito un errore **HTTP 500**. Assicurarsi di gestire questo caso nel frontend o nel client.
 
@@ -60,7 +60,7 @@ docker compose up --build
 
 # ❗ Nota su Red
 
-Il servizio `red` parte **senza output di feedback**.  
+Il servizio `red` parte **senza uso di feedback**.  
 Se hai bisogno di log o output a schermo, **rimuovi l'opzione `--no-feedback`** nel rispettivo `Dockerfile`.
 
 ---
@@ -105,9 +105,9 @@ Se hai bisogno di log o output a schermo, **rimuovi l'opzione `--no-feedback`** 
 ## Green Coherence QT - Question-Theme Evaluation
 - **Endpoint:** `ip:8075/evaluate`
 - **Input JSON:** `"question"`, `"theme"`
-- **Output JSON:** `"bool"` ("Vero" o "Falso"), `"raw"`
+- **Output JSON:** `"bool"` (string "Vero" o "Falso"), `"raw"`
 
 ## Green Coherence QA - Question-Answer Evaluation
 - **Endpoint:** `ip:8076/evaluate`
 - **Input JSON:** `"question"`, `"answer"`
-- **Output JSON:** `"bool"` ("Vero" o "Falso"), `"raw"`
+- **Output JSON:** `"bool"` (string "Vero" o "Falso"), `"raw"`
