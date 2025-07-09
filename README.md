@@ -60,7 +60,7 @@ docker compose up --build
 
 # ❗ Nota su Red
 
-Il servizio `red` parte **senza output di feedback**.  
+Il servizio `red` parte **senza uso di feedback**.  
 Se hai bisogno di log o output a schermo, **rimuovi l'opzione `--no-feedback`** nel rispettivo `Dockerfile`.
 
 ---
