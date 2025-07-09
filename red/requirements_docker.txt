@@ -16,3 +16,5 @@ fastapi==0.115.12
 python-dotenv==1.1.0
 protobuf==6.31.1
 hf_xet==1.1.4
+optimum==1.26.1
+auto-gptq==0.7.1

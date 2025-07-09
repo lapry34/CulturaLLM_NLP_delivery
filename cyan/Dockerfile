@@ -1,4 +1,4 @@
-FROM pytorch/pytorch:2.7.1-cuda12.6-cudnn9-devel
+FROM pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
 
 # Metadata
 LABEL maintainer="xxx"

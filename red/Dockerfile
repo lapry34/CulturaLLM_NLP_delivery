@@ -1,8 +1,8 @@
-FROM pytorch/pytorch:2.7.1-cuda12.6-cudnn9-devel
+FROM pytorch/pytorch:2.7.1-cuda12.8-cudnn9-devel
 
 # Metadata
-LABEL maintainer="Gabriele Onorato"
-LABEL description="Gemma Few-Shot Agent per valutazione oggettività"
+LABEL maintainer="yyy"
+LABEL description="xxx"
 LABEL version="1.0"
 
 # Evita prompt interattivi durante installazione

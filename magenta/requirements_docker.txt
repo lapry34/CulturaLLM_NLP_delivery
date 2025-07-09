@@ -10,6 +10,11 @@ accelerate==1.7.0
 langchain-core==0.3.65
 langchain-community==0.3.25
 langchain==0.3.25
+bitsandbytes==0.46.0
 uvicorn==0.34.3
 fastapi==0.115.12
 python-dotenv==1.1.0
+protobuf==6.31.1
+hf_xet==1.1.4
+optimum==1.26.1
+auto-gptq==0.7.1

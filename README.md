@@ -19,23 +19,41 @@ Nel caso in cui il modello fallisca (es. allucinazioni tali da rendere impossibi
 ---
 
 # 🔐 Configurazione ambiente
-
 Nel file `.env`, specificare le seguenti variabili:
 
 ```env
 HF_TOKEN=your_huggingface_token
 MODEL_ID=nome_del_modello
+QUANT=quantization_type
 ```
+
+Dove `QUANT` può essere:
+- `"4bit"` - Quantizzazione a 4 bit
+- `"8bit"` - Quantizzazione a 8 bit  
+- `"gptq"` - Quantizzazione GPTQ
+- `None` - Nessuna quantizzazione
 
 Esempio:
 
 ```env
 HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxx
 MODEL_ID=meta-llama/Llama-3.2-3B-Instruct
+QUANT=4bit
 ```
 
----
+In caso di esecuzione su CPU usare `"gptq"` e i modelli relativi per usufruire della quantizzazione:
+- `shuyuej/Llama-3.2-1B-Instruct-GPTQ`
+- `shuyuej/Llama-3.2-3B-Instruct-GPTQ`
+- `ISTA-DASLab/gemma-3-4b-it-GPTQ-4b-128g`
 
+Esempio:
+
+```env
+HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxx
+MODEL_ID=shuyuej/Llama-3.2-1B-Instruct-GPTQ
+QUANT=gptq
+```
+---
 # ⚙️ Requisiti GPU (CUDA) su WSL 2
 
 Per usare CUDA con Docker all'interno di WSL 2 (Ubuntu 22.04 LTS), installare:

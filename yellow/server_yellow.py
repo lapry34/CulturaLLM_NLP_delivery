@@ -60,15 +60,23 @@ from langchain.chains import LLMChain
 # FUNZIONE 1: CARICAMENTO MODELLO E TOKENIZER (Adattata da script 1)
 # ============================================================================
 def load_model_and_tokenizer(
-    model_id: str,
-    quant: Optional[str] = "4bit"  # "4bit" | "8bit" | "gptq" | None
+    model_id: str
 ) -> Tuple[transformers.PreTrainedModel,
            transformers.PreTrainedTokenizer,
            str]:
+    
+    quant = os.getenv("QUANT", None)
+
+    # Check if this is a GPTQ model
+    is_gptq_model = "gptq" in model_id.lower()
+    
+    if is_gptq_model:
+        print("🔍 Rilevato modello GPTQ – saltando quantizzazione aggiuntiva")
+    
     """
     Carica tokenizer + modello, provando la quantizzazione richiesta.
     Se la quantizzazione non è disponibile o fallisce, usa il modello
-    non quantizzato e stampa l’esito.
+    non quantizzato e stampa l'esito.
     """
     # ───────────────────────── Device ─────────────────────────
     if torch.backends.mps.is_available():
@@ -77,6 +85,7 @@ def load_model_and_tokenizer(
         device = "cuda"
     else:
         device = "cpu"
+
     print(f"💻 Device selezionato: {device}")
 
     # ─────────────────────── Tokenizer ────────────────────────
@@ -94,13 +103,13 @@ def load_model_and_tokenizer(
     quant_cfg = None
     did_quantize = False
 
-    # GPTQ: i pesi sono già quantizzati → nessuna cfg extra
-    if quant == "gptq" or ".gptq" in model_id.lower():
+    # Per i modelli GPTQ, non usare quantizzazione aggiuntiva
+    if is_gptq_model:
         did_quantize = True
-        print("✨ GPTQ rilevato/chiesto – il modello è già weight-only 4 bit")
-
-    # BitsAndBytes 4/8-bit
-    elif quant in {"4bit", "8bit"}:
+        print("✨ Modello GPTQ già quantizzato – no quantizzazione aggiuntiva")
+    
+    # BitsAndBytes 4/8-bit (solo su CUDA e solo per modelli non-GPTQ)
+    elif quant in {"4bit", "8bit"} and device == "cuda":
         try:
             from transformers import BitsAndBytesConfig
             if quant == "4bit":
@@ -124,21 +133,27 @@ def load_model_and_tokenizer(
 
     # ───────────────────── Caricamento modello ─────────────────
     print(f"🤖 Caricamento modello: {model_id}")
+    
+    # Setup kwargs base
     common_kwargs = dict(
         trust_remote_code=True,
         low_cpu_mem_usage=True,
-        device_map="auto" if device == "cuda" else None,
-        torch_dtype=torch.bfloat16 if device == "cuda" else torch.float32,
-        quantization_config=quant_cfg,
     )
-
-    # Se siamo su mps/CPU e quant_cfg è settata da bitsandbytes,
-    # la ignoriamo perché bitsandbytes richiede CUDA.
-    if device != "cuda":
-        common_kwargs["quantization_config"] = None
-        if quant_cfg is not None:
-            print("⚠️  Quantizzazione richiesta ma non supportata su questo device; caricamento FP32.")
-            did_quantize = False
+    
+    # Configurazione device-specific
+    if device == "cuda":
+        common_kwargs.update({
+            "device_map": "auto",
+            "torch_dtype": torch.bfloat16,
+        })
+        # Aggiungi quantization_config solo se non è GPTQ
+        if not is_gptq_model and quant_cfg is not None:
+            common_kwargs["quantization_config"] = quant_cfg
+    else:
+        # CPU/MPS: configurazione semplificata
+        common_kwargs.update({
+            "torch_dtype": torch.float32,
+        })
 
     model = transformers.AutoModelForCausalLM.from_pretrained(model_id, **common_kwargs)
 
