@@ -1,0 +1,50 @@
+[
+  {
+    "question": "Cosa è la bistecca?",
+    "answer": "Cibo",
+    "feedback": "",
+    "score": 1
+  },
+  {
+    "question": "Cosa è il pesto alla genovese?",
+    "answer": "Un sugo ligure a base di basilico, aglio, pinoli, pecorino e olio extravergine d'oliva.",
+    "feedback": "risposta OK",
+    "score": 7
+  },
+  {
+    "question": "Cosa è il risotto alla milanese?",
+    "answer": "Un risotto lombardo insaporito con zafferano e midollo di bue.",
+    "feedback": "",
+    "score": 8
+  },
+  {
+    "question": "Cosa è il tiramisù?",
+    "answer": "Un dolce al cucchiaio con savoiardi, mascarpone, caffè e cacao.",
+    "feedback": "dolce, descrizione sufficiente",
+    "score": 9
+  },
+  {
+    "question": "Cosa sono gli arancini?",
+    "answer": "Palline di riso impanate e fritte tipiche della Sicilia.",
+    "feedback": "",
+    "score": 8
+  },
+  {
+    "question": "Spiega il teorema di Fermat.",
+    "answer": "Nella teoria dei numeri...",
+    "feedback": "risposta troppo vaga",
+    "score": 3
+  },
+  {
+    "question": "Descrivi la Torre di Pisa.",
+    "answer": "È una torre pendente famosa.",
+    "feedback": "manca contesto storico",
+    "score": 4
+  },
+  {
+    "question": "Cosa è la cioccolata calda?",
+    "answer": "Bevanda dolce calda.",
+    "feedback": "",
+    "score": 4
+  }
+]

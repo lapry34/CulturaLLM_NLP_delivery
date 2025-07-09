@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Che cos'è il Barocco?",
+    "tags": ["arte", "storia", "cultura"]
+  },
+  {
+    "question": "Chi era Galileo Galilei?",
+    "tags": ["scienza", "biografia", "astronomia"]
+  },
+  {
+    "question": "Cos'è il Rinascimento?",
+    "tags": ["arte", "storia", "umanesimo"]
+  },
+  {
+    "question": "Perché si festeggia il 25 aprile in Italia?",
+    "tags": ["storia", "festa", "politica"]
+  },
+  {
+    "question": "Chi era Dante Alighieri?",
+    "tags": ["letteratura", "biografia", "poesia"]
+  },
+  {
+    "question": "Cosa rappresenta il Colosseo?",
+    "tags": ["storia", "architettura", "Roma"]
+  },
+  {
+    "question": "Che cos'è l'Opera italiana?",
+    "tags": ["musica", "teatro", "tradizione"]
+  },
+  {
+    "question": "Cosa si celebra durante il Carnevale di Venezia?",
+    "tags": ["festa", "tradizione", "maschere"]
+  },
+  {
+    "question": "Chi erano i Medici di Firenze?",
+    "tags": ["storia", "famiglia", "patronato"]
+  },
+  {
+    "question": "Cos'è la Commedia dell'Arte?",
+    "tags": ["teatro", "cultura", "tradizione"]
+  }
+]

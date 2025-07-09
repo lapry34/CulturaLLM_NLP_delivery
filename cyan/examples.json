@@ -1,0 +1,54 @@
+[
+  {
+    "argomento": "cucina romana",
+    "livello": 1,
+    "risposta": "La cucina romana è famosa per piatti molto saporiti e semplici. Tra i più conosciuti ci sono la pasta alla carbonara, l’amatriciana e la cacio e pepe, ma anche i supplì al telefono, croccanti sfere di riso con mozzarella filante."
+  },
+  {
+    "argomento": "cucina romana",
+    "livello": 2,
+    "risposta": "La cucina romana è famosa per piatti molto saporiti e semplici. Tra i più conosciuti ci sono la pasta alla carbonara, l’amatriciana, la cacio e pepe e i supplì al telefono, croccanti sfere di riso con mozzarella filante. La carbonara si prepara con spaghetti, uova sbattute, guanciale croccante e pecorino romano; l’amatriciana unisce guanciale, pomodoro e pecorino, mentre la cacio e pepe punta su pecorino grattugiato ed abbondante pepe nero."
+  },
+  {
+    "argomento": "cucina romana",
+    "livello": 3,
+    "risposta": "La cucina romana è famosa per piatti molto saporiti e semplici, fra cui la pasta alla carbonara, l’amatriciana, la cacio e pepe e i supplì al telefono. La carbonara impiega solo uova, guanciale, pecorino romano e pepe, senza panna; l’amatriciana nasce dalla gricia e aggiunge pomodoro; la cacio e pepe crea una salsa cremosa con l’acqua di cottura. Molti piatti derivano dalla tradizione contadina e dai macellai del quartiere Testaccio."
+  },
+  {
+    "argomento": "cucina romana",
+    "livello": 4,
+    "risposta": "La cucina romana è celebre per piatti intensi come carbonara, amatriciana, cacio e pepe, ma anche per specialità di quinto quarto e piatti ebraico-romani come i carciofi alla giudia. L’amatriciana viene documentata dal ‘700, mentre la carbonara emerge nel dopoguerra. Il quinto quarto si lega al macello di Testaccio: coda alla vaccinara, trippa, pajata. Le tecniche culinarie puntano su cotture lente, emulsioni e sapidità. Il pecorino romano e il guanciale sono ingredienti identitari."
+  },
+  {
+    "argomento": "cucina romana",
+    "livello": 5,
+    "risposta": "La cucina romana è una stratificazione di pratiche culinarie popolari, religiose e regionali, che spaziano dal mondo antico all’età moderna. Fonti come Apicio, Ada Boni e Scappi documentano evoluzioni di salse cacio-pepe, piatti di frattaglie, e paste secche. Le tecniche di mantecatura, denaturazione del collagene e uso di pecorino stagionato (con profilo aromatico definito da acidi grassi volatili) sono centrali. Le influenze del Ghetto ebraico, dei pastori abruzzesi e delle trattorie del dopoguerra convergono in un’identità gastronomica oggi riconosciuta a livello UNESCO."
+  },
+  {
+    "argomento": "il Rinascimento",
+    "livello": 1,
+    "risposta": "Il Rinascimento è stato un periodo molto importante in Italia. In quel tempo sono nate tante opere d’arte bellissime e persone come Leonardo da Vinci e Michelangelo hanno creato quadri e statue famose in tutto il mondo."
+  },
+  {
+    "argomento": "il Rinascimento",
+    "livello": 2,
+    "risposta": "Il Rinascimento è un periodo della storia italiana pieno di cambiamenti e bellezza, tra il 1400 e il 1500. Grandi artisti come Leonardo da Vinci, Michelangelo e Raffaello hanno dipinto opere famose, come La Gioconda e la Cappella Sistina. Anche gli scienziati e gli scrittori hanno iniziato a esplorare il mondo e a studiare l’uomo in modo nuovo."
+  },
+  {
+    "argomento": "il Rinascimento",
+    "livello": 3,
+    "risposta": "Il Rinascimento fu un movimento culturale nato in Italia nel Quattrocento, incentrato sulla riscoperta dell’antichità classica, dell’uomo e della natura. Oltre a pittori e scultori come Leonardo, Michelangelo e Botticelli, anche pensatori come Machiavelli e Galileo rivoluzionarono il pensiero politico e scientifico. Le città come Firenze, Roma e Venezia divennero culle di arte e cultura grazie al mecenatismo."
+  },
+  {
+    "argomento": "il Rinascimento",
+    "livello": 4,
+    "risposta": "Il Rinascimento fu una rivoluzione culturale, artistica e filosofica che segnò il passaggio dal Medioevo alla modernità. Iniziato in Italia nel XV secolo, si diffuse poi in Europa. Fondato sul recupero della cultura classica, sviluppò una visione antropocentrica, espressa nel neoplatonismo fiorentino. Michelangelo, Leonardo, Raffaello rappresentano il vertice artistico; il mecenatismo di famiglie come i Medici rese possibile la fioritura culturale. Importanti anche l’architettura di Brunelleschi e l’umanesimo letterario di Poliziano."
+  },
+  {
+    "argomento": "il Rinascimento",
+    "livello": 5,
+    "risposta": "Il Rinascimento italiano fu un fenomeno transdisciplinare che dal XV al XVI secolo riformulò le categorie di arte, scienza e pensiero. Al centro il concetto di uomo come misura del mondo (Protagora), che trova espressione nelle proporzioni leonardiane, nell’architettura brunelleschiana e nella riscoperta dei testi greci tramite l’umanesimo filologico. Le corti italiane (Firenze, Urbino, Mantova) furono poli di produzione intellettuale dove si fusero matematica, pittura prospettica, medicina e alchimia. L’influenza neoplatonica e le innovazioni linguistiche prepararono la nascita della scienza moderna e della filosofia politica."
+  }
+]
+
+

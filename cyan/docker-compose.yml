@@ -1,0 +1,37 @@
+# =============================================================================
+# Docker Compose per Few-Shot Agent
+# =============================================================================
+
+version: '3.8'
+
+services:
+  cyan_server:
+    build:
+      context: .  # Assicurati che il Dockerfile sia nella stessa directory
+      dockerfile: Dockerfile  # Specifica il nome del Dockerfile se necessario
+    image: cyan:latest  # Sostituisci con l'immagine Docker corretta
+    container_name: cyan_server
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - models_cache:/models_cache
+      - hf_cache:/hf_cache
+    ports:
+      - "8073:8073"  # Modifica la porta se necessario
+    networks:
+      - cyan_network
+    runtime: nvidia  # Assicurati di avere il runtime NVIDIA configurato
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all  # Assicurati che il container possa accedere alla GPU
+# Volumi nominati per persistenza
+volumes:
+  models_cache:
+    driver: local
+  hf_cache:
+    driver: local
+
+# Network per eventuale espansione futura
+networks:
+  cyan_network:
+    driver: bridge

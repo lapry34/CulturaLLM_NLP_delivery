@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Qual è la capitale d'Italia?",
+    "answer": "La capitale d'Italia è Roma.",
+    "bool": "Vero"
+  },
+  {
+    "question": "Come si prepara il caffè espresso?",
+    "answer": "Gli elefanti sono mammiferi di grandi dimensioni che vivono in Africa.",
+    "bool": "Falso"
+  },
+  {
+    "question": "Che tempo farà domani?",
+    "answer": "Non posso prevedere il tempo futuro senza dati meteorologici aggiornati.",
+    "bool": "Vero"
+  },
+  {
+    "question": "Quanto fa 2+2?",
+    "answer": "2+2 fa 5.",
+    "bool": "Falso"
+  },
+  {
+    "question": "Quali sono i benefici dell'esercizio fisico?",
+    "answer": "L'esercizio fisico migliora la salute cardiovascolare, rinforza i muscoli, riduce lo stress e aiuta a mantenere un peso corporeo sano.",
+    "bool": "Vero"
+  },
+  {
+    "question": "Come si dice 'grazie' in francese?",
+    "answer": "La pizza è un piatto tipico italiano.",
+    "bool": "Falso"
+  },
+  {
+    "question": "Perché il cielo è blu?",
+    "answer": "Il cielo appare blu a causa della diffusione della luce solare nell'atmosfera, un fenomeno chiamato scattering di Rayleigh.",
+    "bool": "Vero"
+  },
+  {
+    "question": "Chi ha scritto 'La Divina Commedia'?",
+    "answer": "William Shakespeare ha scritto 'La Divina Commedia'.",
+    "bool": "Falso"
+  }
+]

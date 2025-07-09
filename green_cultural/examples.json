@@ -1,0 +1,44 @@
+[
+  {
+    "question": "Spiega il processo di fotosintesi nelle piante",
+    "score": 10,
+    "feedback": "Domanda eccellente, chiara e ben formulata che richiede una spiegazione dettagliata di un processo biologico complesso. La formulazione è diretta e specifica, richiedendo conoscenze scientifiche approfondite per una risposta completa."
+  },
+  {
+    "question": "Come si cucina la pasta al dente?",
+    "score": 8,
+    "feedback": "Domanda buona e ben strutturata che richiede una spiegazione specifica di una tecnica culinaria. È chiara e diretta, con un buon grado di complessità nella spiegazione del processo e dei tempi di cottura."
+  },
+  {
+    "question": "Qual è la capitale dell'Australia?",
+    "score": 7,
+    "feedback": "Domanda chiara e ben formulata ma con complessità limitata, richiedendo una risposta semplice e diretta. È culturalmente rilevante per la geografia mondiale ma non richiede particolare articolazione nella risposta."
+  },
+  {
+    "question": "Cosa mangio stasera?",
+    "score": 0,
+    "feedback": "Domanda personale senza rilevanza culturale o educativa. Non può essere risposta in modo oggettivo e non contribuisce alla diffusione di conoscenza generale."
+  },
+  {
+    "question": "Come si calcola l'area di un triangolo?",
+    "score": 4,
+    "feedback": "Domanda insufficiente per complessità, pur essendo chiara e comprensibile. Richiede una risposta matematica semplice e diretta senza particolare articolazione o approfondimento."
+  },
+  {
+    "question": "Come si fa una torta al cioccolato?",
+    "score": 2,
+    "feedback": "Domanda inadeguata, troppo generica e poco specifica. Pur essendo comprensibile, manca di dettagli sulla tipologia di torta o tecniche specifiche, risultando poco articolata."
+  },
+  {
+    "question": "Che impatto ha avuto l'invenzione della stampa di Gutenberg sulla diffusione della conoscenza?",
+    "score": 10,
+    "feedback": "Domanda eccellente, molto ben formulata e culturalmente rilevante per la storia della comunicazione. Richiede una analisi complessa dell'impatto sociale, culturale ed educativo con alta complessità nella spiegazione delle conseguenze storiche."
+  },
+  {
+    "question": "Come funziona un motore a combustione interna?",
+    "score": 6,
+    "feedback": "Domanda sufficiente, comprensibile e culturalmente pertinente che richiede spiegazioni tecniche. La formulazione è chiara ma potrebbe essere più specifica riguardo al tipo di motore o agli aspetti da approfondire."
+  }
+]
+
+

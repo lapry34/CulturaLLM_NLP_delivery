@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Quali sono i principali fattori che influenzano il cambiamento climatico?",
+    "answer": "I principali fattori del cambiamento climatico includono le emissioni di gas serra (CO2, metano, ossidi di azoto) derivanti da combustibili fossili, deforestazione, agricoltura intensiva e processi industriali. L'effetto serra naturale viene amplificato dall'attività umana, causando aumento delle temperature globali, scioglimento dei ghiacci, innalzamento del livello dei mari e alterazioni dei pattern meteorologici. Le concentrazioni di CO2 sono aumentate del 40% dall'era preindustriale.",
+    "feedback": "Risposta eccellente che dimostra accuratezza scientifica, alta pertinenza, dettaglio completo con dati quantitativi, e struttura logica molto chiara.",
+    "score": 5
+  },
+  {
+    "question": "Quali sono le principali fonti di energia rinnovabile?",
+    "answer": "Le energie rinnovabili... uhm... sono tipo quelle che non finiscono mai? Credo ci sia il sole e forse anche il vento. Non sono sicuro di altre.",
+    "feedback": "Risposta molto incerta e imprecisa. Linguaggio colloquiale inappropriato, mancanza di fiducia nelle informazioni fornite, elenco estremamente incompleto. Quasi nessun valore informativo.",
+    "score": 1
+  },
+  {
+    "question": "Come si prepara un risotto alla milanese?",
+    "answer": "Per il risotto alla milanese: tosta 320g di riso Carnaroli in burro e cipolla tritata, sfuma con vino bianco, aggiungi brodo caldo un mestolo alla volta mescolando costantemente. A metà cottura aggiungi zafferano sciolto in brodo caldo. Cuoci 18 minuti circa fino a consistenza cremosa. Manteca con burro, parmigiano e midollo di bue. Il riso deve essere all'onda.",
+    "feedback": "Risposta corretta e pertinente con ottimo dettaglio pratico, dosi precise e tecnica specifica. Chiarezza espositiva eccellente con terminologia appropriata.",
+    "score": 5
+  },
+  {
+    "question": "Qual è la montagna più alta del mondo?",
+    "answer": "L'Everest è la montagna più alta con 8.848 metri. Si trova tra Nepal e Tibet nella catena dell'Himalaya.",
+    "feedback": "Risposta corretta e pertinente ma con dettagli minimali. Informazione precisa ma potrebbe essere più approfondita.",
+    "score": 3
+  },
+  {
+    "question": "Spiega il concetto di intelligenza artificiale",
+    "answer": "L'IA è la capacità delle macchine di imitare l'intelligenza umana attraverso algoritmi e reti neurali. Include machine learning, deep learning, elaborazione del linguaggio naturale e visione artificiale. Si divide in IA debole (specifica per compiti) e forte (intelligenza generale). Trova applicazioni in automotive, sanità, finanza e assistenti virtuali. Utilizza big data per apprendimento e miglioramento continuo delle prestazioni.",
+    "feedback": "Risposta corretta e molto pertinente con buon livello di dettaglio tecnico, esempi pratici e classificazioni appropriate. Chiarezza buona.",
+    "score": 4
+  },
+  {
+    "question": "Chi ha dipinto la Gioconda?",
+    "answer": "La Gioconda è stata dipinta da Leonardo da Vinci tra il 1503 e il 1519. È conservata al Louvre di Parigi ed è famosa per il sorriso enigmatico e la tecnica dello sfumato.",
+    "feedback": "Risposta corretta e pertinente con dettagli appropriati su periodo, ubicazione e caratteristiche artistiche. Chiarezza buona.",
+    "score": 4
+  },
+  {
+    "question": "Come funziona la blockchain?",
+    "answer": "La blockchain è una catena di blocchi dove ogni blocco contiene transazioni. Ogni blocco ha un hash che lo identifica. È distribuita su molti computer e sicura perché è difficile modificarla.",
+    "feedback": "Risposta corretta nelle basi e pertinente, ma superficiale nei dettagli tecnici. Mancano concetti come consenso, mining, crittografia. Chiarezza accettabile ma limitata.",
+    "score": 3
+  },
+  {
+    "question": "Qual è la differenza tra DNA e RNA?",
+    "answer": "Il DNA ha due filamenti e l'RNA uno solo. Il DNA sta nel nucleo e l'RNA può uscire. Il DNA ha timina e l'RNA ha uracile invece.",
+    "feedback": "Risposta parzialmente corretta e pertinente ma con dettagli molto limitati. Mancano funzioni specifiche, strutture chimiche complete. Chiarezza sufficiente ma troppo semplificata.",
+    "score": 2
+  }
+]
+
+

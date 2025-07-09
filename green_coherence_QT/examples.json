@@ -1,0 +1,46 @@
+[
+  {
+    "question": "Quali sono gli ingredienti principali per preparare una pizza margherita?",
+    "theme": "Cucina italiana",
+    "bool": "Vero"
+  },
+  {
+    "question": "Come si installa una libreria in Python usando pip?",
+    "theme": "Programmazione",
+    "bool": "Vero"
+  },
+  {
+    "question": "Qual è la capitale del Giappone?",
+    "theme": "Geografia",
+    "bool": "Vero"
+  },
+  {
+    "question": "Quali esercizi sono efficaci per allenare i muscoli addominali?",
+    "theme": "Fitness",
+    "bool": "Vero"
+  },
+  {
+    "question": "Chi ha scritto 'I Promessi Sposi'?",
+    "theme": "Letteratura italiana",
+    "bool": "Vero"
+  },
+  {
+    "question": "Come si prepara un risotto ai funghi?",
+    "theme": "Calcio",
+    "bool": "Falso"
+  },
+  {
+    "question": "Dove quando il tempo veloce?",
+    "theme": "Viaggi",
+    "bool": "Falso"
+  },
+  {
+    "question": "Il colore rosso è più forte del numero sette?",
+    "theme": "Matematica",
+    "bool": "Falso"
+  }
+]
+
+
+
+  

@@ -1,0 +1,99 @@
+# =============================================================================
+# .dockerignore per Gemma Few-Shot Agent
+# =============================================================================
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+docs/
+*.md
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Model cache (verrà creata nel container)
+models/
+cache/
+.cache/
+huggingface/
+
+# Logs
+logs/
+*.log
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# OS generated files
+Thumbs.db
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+.tox/
+
+# Data directories (create fresh in container)
+data/output/
+data/temp/
+
+# Large files
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.bin
+*.safetensors
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Virtual environments
+.conda/
+conda-meta/
