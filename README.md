@@ -46,6 +46,14 @@ In caso di esecuzione su CPU usare `"gptq"` e i modelli relativi per usufruire d
 - `shuyuej/Llama-3.2-3B-Instruct-GPTQ`
 - `ISTA-DASLab/gemma-3-4b-it-GPTQ-4b-128g`
 
+⚠️ **Nota per esecuzione SOLO su CPU:** nel file `docker-compose.yml` rimuovere le seguenti righe da tutti i servizi: (Feedback da Lab ing inf)
+
+```yaml
+runtime: nvidia
+environment:
+   - NVIDIA_VISIBLE_DEVICES=all
+```
+
 Esempio:
 
 ```env
