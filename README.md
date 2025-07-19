@@ -25,7 +25,10 @@ Nel file `.env`, specificare le seguenti variabili:
 HF_TOKEN=your_huggingface_token
 MODEL_ID=nome_del_modello
 QUANT=quantization_type
+PORT=port_number
 ```
+
+Il campo `PORT` se non specificato, usa di default la 8071.
 
 Dove `QUANT` può essere:
 - `"4bit"` - Quantizzazione a 4 bit
@@ -39,6 +42,7 @@ Esempio:
 HF_TOKEN=hf_xxxxxxxxxxxxxxxxxxx
 MODEL_ID=meta-llama/Llama-3.2-3B-Instruct
 QUANT=4bit
+PORT=8080
 ```
 
 In caso di esecuzione su CPU usare `"gptq"` e i modelli relativi per usufruire della quantizzazione:
@@ -46,7 +50,7 @@ In caso di esecuzione su CPU usare `"gptq"` e i modelli relativi per usufruire d
 - `shuyuej/Llama-3.2-3B-Instruct-GPTQ`
 - `ISTA-DASLab/gemma-3-4b-it-GPTQ-4b-128g`
 
-⚠️ **Nota per esecuzione SOLO su CPU:** nel file `docker-compose.yml` rimuovere le seguenti righe da tutti i servizi: (Feedback da Lab ing inf)
+⚠️ **Nota per esecuzione SOLO su CPU:** nel file `docker-compose.yml` rimuovere le seguenti righe da tutti i servizi: (Feedback da Lab Ing. Inf.)
 
 ```yaml
 runtime: nvidia
@@ -76,64 +80,70 @@ Per usare CUDA con Docker all'interno di WSL 2 (Ubuntu 22.04 LTS), installare:
 
 # 🚣 Avvio dei container
 
-Per avviare l’ambiente (con build dei container):
+Per avviare l'ambiente (con build dei container):
 
 ```bash
 docker compose up --build
 ```
 
----
+Una volta avviati, tutti i servizi saranno accessibili su **http://localhost:8071** con i seguenti endpoint:
 
-# ❗ Nota su Red
-
-Il servizio `red` parte **senza uso di feedback**.  
-Se hai bisogno di log o output a schermo, **rimuovi l'opzione `--no-feedback`** nel rispettivo `Dockerfile`.
+- **Orange (Tagging):** http://localhost:8071/orange
+- **Yellow (Question Generation):** http://localhost:8071/yellow
+- **Red (Evaluation):** http://localhost:8071/red
+- **Green Validity:** http://localhost:8071/green_validity
+- **Green Cultural:** http://localhost:8071/green_cultural
+- **Cyan (Answer Generation):** http://localhost:8071/cyan
+- **Magenta (Humanization):** http://localhost:8071/magenta
+- **Green Coherence QT:** http://localhost:8071/green_coherence_QT
+- **Green Coherence QA:** http://localhost:8071/green_coherence_QA
 
 ---
 
 # 🌐 Endpoint REST (POST)
 
 ## Orange - Tagging
-- **Endpoint:** `ip:8068/tag`
-- **Input JSON:** `"question"`
-- **Output JSON:** `"tags"`, `"raw_output"`, `"mode_used"`
+- **Endpoint:** `http://localhost:8071/orange`
+- **Input JSON:** `{"question": "string"}`
+- **Output JSON:** `{"tags": "string", "raw": "string"}`
 
 ## Yellow - Question Generation
-- **Endpoint:** `ip:8069/generate_question`
-- **Input JSON:** `"argument"`
-- **Output JSON:** `"question_generated"`, `"raw_llm_output"`
+- **Endpoint:** `http://localhost:8071/yellow`
+- **Input JSON:** `{"argument": "string"}`
+- **Output JSON:** `{"question_generated": "string", "raw": "string"}`
 
 ## Red - Evaluation
-- **Endpoint:** `ip:8070/evaluate`
-- **Input JSON:** `"question"`, `"answer"`, `"feedback"` (opzionale)
-- **Output JSON:** `"score"` (int), `"raw"`
+- **Endpoint:** `http://localhost:8071/red`
+- **Input JSON:** `{"question": "string", "answer": "string", "feedback": "string"}`
+- **Output JSON:** `{"score": integer, "raw": "string"}`
 
-## Green Validity - Evaluation
-- **Endpoint:** `ip:8071/evaluate`
-- **Input JSON:** `"question"`, `"answer"`
-- **Output JSON:** `"score"` (int), `"feedback"`, `"raw"`
-
-## Green Cultural - Evaluation
-- **Endpoint:** `ip:8072/evaluate`
-- **Input JSON:** `"question"`
-- **Output JSON:** `"score"` (int), `"raw"`
 
 ## Cyan - Answer Generation
-- **Endpoint:** `ip:8073/answer`
-- **Input JSON:** `"argomento"`, `"livello"`
-- **Output JSON:** `"risposta"`, `"raw"`
+- **Endpoint:** `http://localhost:8071/cyan`
+- **Input JSON:** `{"argomento": "string", "livello": "string"}`
+- **Output JSON:** `{"risposta": "string", "raw": "string"}`
 
 ## Magenta - Humanization
-- **Endpoint:** `ip:8074/humanize`
-- **Input JSON:** `"llm_response"`, `"level"`
-- **Output JSON:** `"humanized_response"`, `"raw_model_output"`
+- **Endpoint:** `http://localhost:8071/magenta`
+- **Input JSON:** `{"llm_response": "string", "level": "string"}`
+- **Output JSON:** `{"humanized_response": "string", "raw": "string"}`
 
 ## Green Coherence QT - Question-Theme Evaluation
-- **Endpoint:** `ip:8075/evaluate`
-- **Input JSON:** `"question"`, `"theme"`
-- **Output JSON:** `"bool"` (string "Vero" o "Falso"), `"raw"`
+- **Endpoint:** `http://localhost:8071/green_coherence_QT`
+- **Input JSON:** `{"question": "string", "theme": "string"}`
+- **Output JSON:** `{"bool": "string", "raw": "string"}`
 
 ## Green Coherence QA - Question-Answer Evaluation
-- **Endpoint:** `ip:8076/evaluate`
-- **Input JSON:** `"question"`, `"answer"`
-- **Output JSON:** `"bool"` (string "Vero" o "Falso"), `"raw"`
+- **Endpoint:** `http://localhost:8071/green_coherence_QA`
+- **Input JSON:** `{"question": "string", "answer": "string"}`
+- **Output JSON:** `{"bool": "string", "raw": "string"}`
+
+## Green Validity - Evaluation
+- **Endpoint:** `http://localhost:8071/green_validity`
+- **Input JSON:** `{"question": "string", "answer": "string"}`
+- **Output JSON:** `{"score": integer, "feedback": "string", "raw": "string"}`
+
+## Green Cultural - Evaluation
+- **Endpoint:** `http://localhost:8071/green_cultural`
+- **Input JSON:** `{"question": "string"}`
+- **Output JSON:** `{"score": integer, "feedback": "string", "raw": "string"}`

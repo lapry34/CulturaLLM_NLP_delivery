@@ -1,0 +1,10 @@
+{
+  "input_fields": ["question", "answer", "feedback"],
+  "outputs": {
+    "score": {
+      "extract_pattern": "\\d+",
+      "type": "int"
+    }
+  },
+  "max_new_tokens": 25
+}

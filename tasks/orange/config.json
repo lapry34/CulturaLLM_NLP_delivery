@@ -1,0 +1,10 @@
+{
+  "input_fields": ["question"],
+  "outputs": {
+    "tags": {
+      "extract_pattern": "([^,]+,\\s*[^,]+,\\s*[^,]+)",
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 50
+}

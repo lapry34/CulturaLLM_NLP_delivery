@@ -1,0 +1,10 @@
+{
+  "input_fields": ["argomento", "livello"],
+  "outputs": {
+    "risposta": {
+      "extract_pattern": null,
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 500
+}

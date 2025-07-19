@@ -1,0 +1,9 @@
+{
+  "input_fields": ["llm_response", "level"],
+  "outputs": {
+    "humanized_response": {
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 1024
+}

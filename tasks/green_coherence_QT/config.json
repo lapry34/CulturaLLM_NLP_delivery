@@ -1,0 +1,10 @@
+{
+  "input_fields": ["question", "theme"],
+  "outputs": {
+    "bool": {
+      "extract_pattern": "(Vero|Falso)",
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 50
+}

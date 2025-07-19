@@ -1,0 +1,14 @@
+{
+  "input_fields": ["question"],
+  "outputs": {
+    "score": {
+      "extract_pattern": "Punteggio:\\s*(\\d+)",
+      "type": "int"
+    },
+    "feedback": {
+      "extract_pattern": "Feedback:\\s*(.+?)(?:\\n|$)",
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 200
+}

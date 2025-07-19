@@ -1,0 +1,9 @@
+{
+  "input_fields": ["argument"],
+  "outputs": {
+    "question_generated": {
+      "type": "str"
+    }
+  },
+  "max_new_tokens": 150
+}
